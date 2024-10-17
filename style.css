@@ -1,0 +1,163 @@
+.title
+{
+    border: 1px solid #000000;
+    padding: 10px;
+    background: #ffffff;
+}
+
+/* テーブル全体のスタイル */
+.table1, .table2{
+    table-layout: fixed;
+    border-collapse: collapse; /* セルの境界線を重ねて見せない */
+}
+
+.table1 th, td, .table2 th, td {
+    text-align: center;  /* 文字を中央揃え */
+    padding:10px;  /* セル内の余白を指定 */
+    border: 1px solid #000;  /* セルの境界線 */
+}
+
+.table1 tr, .table2 tr {
+    height: 50px;  /* セルの高さ */
+}
+
+.table1 th, td:nth-child(even), .table2 th, td:nth-child(even) {
+    width: 100px;  /* 偶数番目のセルの幅 */
+}
+
+/* 特定のセルの枠線を非表示にする */
+.table1 .no-border, .table2 .no-border {
+    border: none;  /* 枠線を全て非表示にする */
+}
+
+.ayumu::before {
+    content: "";  /* 空の内容を設定（四角形用） */
+    display: inline-block;  /* インライン要素としてブロック表示 */
+    width: 12px;  /* 四角形の幅 */
+    height: 12px;  /* 四角形の高さ */
+    background-color: #ed7d95;  /* 四角形の背景色（例: 青） */
+    margin-right: 5px;  /* 四角形とテキストの間の余白 */
+    vertical-align: middle;  /* テキストと四角形の高さを揃える */
+}
+
+.kasumi::before {
+    content: "";  /* 空の内容を設定（四角形用） */
+    display: inline-block;  /* インライン要素としてブロック表示 */
+    width: 12px;  /* 四角形の幅 */
+    height: 12px;  /* 四角形の高さ */
+    background-color: #e7d600;  /* 四角形の背景色（例: 青） */
+    margin-right: 5px;  /* 四角形とテキストの間の余白 */
+    vertical-align: middle;  /* テキストと四角形の高さを揃える */
+}
+
+.shizuku::before {
+    content: "";  /* 空の内容を設定（四角形用） */
+    display: inline-block;  /* インライン要素としてブロック表示 */
+    width: 12px;  /* 四角形の幅 */
+    height: 12px;  /* 四角形の高さ */
+    background-color: #0187ed;  /* 四角形の背景色（例: 青） */
+    margin-right: 5px;  /* 四角形とテキストの間の余白 */
+    vertical-align: middle;  /* テキストと四角形の高さを揃える */
+}
+
+.karin::before {
+    content: "";  /* 空の内容を設定（四角形用） */
+    display: inline-block;  /* インライン要素としてブロック表示 */
+    width: 12px;  /* 四角形の幅 */
+    height: 12px;  /* 四角形の高さ */
+    background-color: #485ec6;  /* 四角形の背景色（例: 青） */
+    margin-right: 5px;  /* 四角形とテキストの間の余白 */
+    vertical-align: middle;  /* テキストと四角形の高さを揃える */
+}
+
+.ai::before {
+    content: "";  /* 空の内容を設定（四角形用） */
+    display: inline-block;  /* インライン要素としてブロック表示 */
+    width: 12px;  /* 四角形の幅 */
+    height: 12px;  /* 四角形の高さ */
+    background-color: #ff5800;  /* 四角形の背景色（例: 青） */
+    margin-right: 5px;  /* 四角形とテキストの間の余白 */
+    vertical-align: middle;  /* テキストと四角形の高さを揃える */
+}
+
+.kanata::before {
+    content: "";  /* 空の内容を設定（四角形用） */
+    display: inline-block;  /* インライン要素としてブロック表示 */
+    width: 12px;  /* 四角形の幅 */
+    height: 12px;  /* 四角形の高さ */
+    background-color: #a664a0;  /* 四角形の背景色（例: 青） */
+    margin-right: 5px;  /* 四角形とテキストの間の余白 */
+    vertical-align: middle;  /* テキストと四角形の高さを揃える */
+}
+
+.setsuna::before {
+    content: "";  /* 空の内容を設定（四角形用） */
+    display: inline-block;  /* インライン要素としてブロック表示 */
+    width: 12px;  /* 四角形の幅 */
+    height: 12px;  /* 四角形の高さ */
+    background-color: #d81c2f;  /* 四角形の背景色（例: 青） */
+    margin-right: 5px;  /* 四角形とテキストの間の余白 */
+    vertical-align: middle;  /* テキストと四角形の高さを揃える */
+}
+
+.ema::before {
+    content: "";  /* 空の内容を設定（四角形用） */
+    display: inline-block;  /* インライン要素としてブロック表示 */
+    width: 12px;  /* 四角形の幅 */
+    height: 12px;  /* 四角形の高さ */
+    background-color: #84c36e;  /* 四角形の背景色（例: 青） */
+    margin-right: 5px;  /* 四角形とテキストの間の余白 */
+    vertical-align: middle;  /* テキストと四角形の高さを揃える */
+}
+
+.rina::before {
+    content: "";  /* 空の内容を設定（四角形用） */
+    display: inline-block;  /* インライン要素としてブロック表示 */
+    width: 12px;  /* 四角形の幅 */
+    height: 12px;  /* 四角形の高さ */
+    background-color: #9ca5b9;  /* 四角形の背景色（例: 青） */
+    margin-right: 5px;  /* 四角形とテキストの間の余白 */
+    vertical-align: middle;  /* テキストと四角形の高さを揃える */
+}
+
+.shioriko::before {
+    content: "";  /* 空の内容を設定（四角形用） */
+    display: inline-block;  /* インライン要素としてブロック表示 */
+    width: 12px;  /* 四角形の幅 */
+    height: 12px;  /* 四角形の高さ */
+    background-color: #37b484;  /* 四角形の背景色（例: 青） */
+    margin-right: 5px;  /* 四角形とテキストの間の余白 */
+    vertical-align: middle;  /* テキストと四角形の高さを揃える */
+}
+
+.mia::before {
+    content: "";  /* 空の内容を設定（四角形用） */
+    display: inline-block;  /* インライン要素としてブロック表示 */
+    width: 12px;  /* 四角形の幅 */
+    height: 12px;  /* 四角形の高さ */
+    background-color: #a99e98;  /* 四角形の背景色（例: 青） */
+    margin-right: 5px;  /* 四角形とテキストの間の余白 */
+    vertical-align: middle;  /* テキストと四角形の高さを揃える */
+}
+
+.ranzyu::before {
+    content: "";  /* 空の内容を設定（四角形用） */
+    display: inline-block;  /* インライン要素としてブロック表示 */
+    width: 12px;  /* 四角形の幅 */
+    height: 12px;  /* 四角形の高さ */
+    background-color: #f8c8c4;  /* 四角形の背景色（例: 青） */
+    margin-right: 5px;  /* 四角形とテキストの間の余白 */
+    vertical-align: middle;  /* テキストと四角形の高さを揃える */
+}
+
+#mySelect1 {
+    width: 100px;  /* 横幅 */
+    height: 20px;  /* 高さ */
+    font-size: 16px;  /* フォントサイズ */
+}
+
+#mySelect2 {
+    width: 100px;  /* 横幅 */
+    height: 20px;  /* 高さ */
+    font-size: 16px;  /* フォントサイズ */
+}
