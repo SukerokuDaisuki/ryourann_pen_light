@@ -57,31 +57,31 @@
             </tr>
             <tr>
                 <th>ペンライト1</th>
-                <td><p class="kasumi">かすみ</p></td>
+                <td><div class="kasumi">かすみ</div></td>
                 <td>+3<br>→</td>
-                <td><p class="ai">愛</p></td>
+                <td><div class="ai">愛</div></td>
                 <td>-1<br>→</td>
-                <td><p class="karin">果林</p></td>
+                <td><div class="karin">果林</div></td>
                 <td>-1<br>→</td>
-                <td><p class="shizuku">しずく</p></td>
+                <td><div class="shizuku">しずく</div></td>
                 <td>-3<br>→</td>
-                <td><p class="ranzyu">ランジュ</p></td>
+                <td><div class="ranzyu">ランジュ</div></td>
                 <td>+1<br>→</td>
-                <td><p class="ayumu">歩夢</p></td>
+                <td><div class="ayumu">歩夢</div></td>
             </tr>
             <tr>
                 <th>ペンライト2</th>
-                <td><p class="rina">璃奈</p></td>
+                <td><div class="rina">璃奈</div></td>
                 <td>-1<br>→</td>
-                <td><p class="kanata">エマ</p></td>
+                <td><div class="kanata">エマ</div></td>
                 <td>-1<br>→</td>
-                <td><p class="setsuna">せつ菜</p></td>
+                <td><div class="setsuna">せつ菜</div></td>
                 <td>-1<br>→</td>
-                <td><p class="kanata">彼方</p></td>
+                <td><div class="kanata">彼方</div></td>
                 <td>+5<br>→</td>
-                <td><p class="mia">ミア</p></td>
+                <td><div class="mia">ミア</div></td>
                 <td>-1<br>→</td>
-                <td><p class="shioriko">栞子</p></td>
+                <td><div class="shioriko">栞子</div></td>
             </tr>
         </table>
         <button id="back" onclick="init()">戻る</button>
@@ -104,43 +104,13 @@
                 <td>2番②</td>
                 <td class="no-border"></td>
                 <td>2番③</td>
+                <td class="no-border"></td>
+                <td>それ以降</td>
             </tr>
             <tr>
                 <th>ペンライト1</th>
                 <td>
-                    <select id="myselect1" name="option1" onchange="updateSelectOptions1(2,9,this)">
-                        <option value="" disabled selected>選択してください</option> 
-                        <option value="1">歩夢</option>
-                        <option value="2">かすみ</option>
-                        <option value="3">しずく</option>
-                        <option value="4">果林</option>
-                        <option value="5">愛</option>
-                        <option value="6">彼方</option>
-                        <option value="7">せつ菜</option>
-                        <option value="8">エマ</option>
-                        <option value="9">璃奈</option>
-                        <option value="10">栞子</option>
-                        <option value="11">ミア</option>
-                        <option value="12">ランジュ</option>
-                    </select>
-                </td>
-                <td><p id="result1"></p><br>→</td>
-                <td><p class="kasumi">かすみ</p></td>
-                <td>+3<br>→</td>
-                <td><p class="ai">愛</p></td>
-                <td>-1<br>→</td>
-                <td><p class="karin">果林</p></td>
-                <td>-1<br>→</td>
-                <td><p class="shizuku">しずく</p></td>
-                <td>-3<br>→</td>
-                <td><p class="ranzyu">ランジュ</p></td>
-                <td>+1<br>→</td>
-                <td><p class="ayumu">歩夢</p></td>
-            </tr>
-            <tr>
-                <th>ペンライト2</th>
-                <td>
-                    <select id="myselect2" name="option2" onchange="updateSelectOptions1(2,9,this)">
+                    <select id="myselect1" name="option1" onchange="updateSelectOptions1(2,9); updateSelectOptions2(1,10)">
                         <option value="" disabled selected>選択してください</option>
                         <option value="1">歩夢</option>
                         <option value="2">かすみ</option>
@@ -156,18 +126,54 @@
                         <option value="12">ランジュ</option>
                     </select>
                 </td>
-                <td><p id="result2"></p><br>→</td>
-                <td><p class="rina">璃奈</p></td>
+                <td><div id="result1"></div>→</td>
+                <td><div class="kasumi">かすみ</div></td>
+                <td>+3<br>→</td>
+                <td><div class="ai">愛</div></td>
                 <td>-1<br>→</td>
-                <td><p class="kanata">エマ</p></td>
+                <td><div class="karin">果林</div></td>
                 <td>-1<br>→</td>
-                <td><p class="setsuna">せつ菜</p></td>
+                <td><div class="shizuku">しずく</div></td>
+                <td>-3<br>→</td>
+                <td><div class="ranzyu">ランジュ</div></td>
+                <td>+1<br>→</td>
+                <td><div class="ayumu">歩夢</div></td>
+                <td><div id="result3"></div>→</td>
+                <td><div id="select1"></div></td>
+            </tr>
+            <tr>
+                <th>ペンライト2</th>
+                <td>
+                    <select id="myselect2" name="option2" onchange="updateSelectOptions1(2,9); updateSelectOptions2(1,10)">
+                        <option value="" disabled selected>選択してください</option>
+                        <option value="1">歩夢</option>
+                        <option value="2">かすみ</option>
+                        <option value="3">しずく</option>
+                        <option value="4">果林</option>
+                        <option value="5">愛</option>
+                        <option value="6">彼方</option>
+                        <option value="7">せつ菜</option>
+                        <option value="8">エマ</option>
+                        <option value="9">璃奈</option>
+                        <option value="10">栞子</option>
+                        <option value="11">ミア</option>
+                        <option value="12">ランジュ</option>
+                    </select>
+                </td>
+                <td><div id="result2"></div>→</td>
+                <td><div class="rina">璃奈</div></td>
                 <td>-1<br>→</td>
-                <td><p class="kanata">彼方</p></td>
+                <td><div class="kanata">エマ</div></td>
+                <td>-1<br>→</td>
+                <td><div class="setsuna">せつ菜</div></td>
+                <td>-1<br>→</td>
+                <td><div class="kanata">彼方</div></td>
                 <td>+5<br>→</td>
-                <td><p class="mia">ミア</p></td>
+                <td><div class="mia">ミア</div></td>
                 <td>-1<br>→</td>
-                <td><p class="shioriko">栞子</p></td>
+                <td><div class="shioriko">栞子</div></td>
+                <td><div id="result4"></div>→</td>
+                <td><div id="select2"></div></td>
             </tr>
         </table>
         <button id="back" onclick="init()">戻る</button>
@@ -191,31 +197,31 @@
             </tr>
             <tr>
                 <th>ペンライト1</th>
-                <td><p class="kasumi">かすみ</p></td>
+                <td><div class="kasumi">かすみ</div></td>
                 <td>+3<br>→</td>
-                <td><p class="ai">愛</p></td>
+                <td><div class="ai">愛</div></td>
                 <td>-1<br>→</td>
-                <td><p class="karin">果林</p></td>
+                <td><div class="karin">果林</div></td>
                 <td>-1<br>→</td>
-                <td><p class="shizuku">しずく</p></td>
+                <td><div class="shizuku">しずく</div></td>
                 <td>-3<br>→</td>
-                <td><p class="ranzyu">ランジュ</p></td>
+                <td><div class="ranzyu">ランジュ</div></td>
                 <td>+1<br>→</td>
-                <td><p class="ayumu">歩夢</p></td>
+                <td><div class="ayumu">歩夢</div></td>
             </tr>
             <tr>
                 <th>ペンライト2</th>
-                <td><p class="rina">璃奈</p></td>
+                <td><div class="rina">璃奈</div></td>
                 <td>-1<br>→</td>
-                <td><p class="kanata">エマ</p></td>
+                <td><div class="kanata">エマ</div></td>
                 <td>-1<br>→</td>
-                <td><p class="setsuna">せつ菜</p></td>
+                <td><div class="setsuna">せつ菜</div></td>
                 <td>-1<br>→</td>
-                <td><p class="kanata">彼方</p></td>
+                <td><div class="kanata">彼方</div></td>
                 <td>+5<br>→</td>
-                <td><p class="mia">ミア</p></td>
+                <td><div class="mia">ミア</div></td>
                 <td>-1<br>→</td>
-                <td><p class="shioriko">栞子</p></td>
+                <td><div class="shioriko">栞子</div></td>
             </tr>
         </table>
         <button id="back" onclick="init()">戻る</button>

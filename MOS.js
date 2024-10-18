@@ -4,13 +4,14 @@ function start_ryouran() {
     // convert display
     pattern = document.querySelector('input[name="pattern"]:checked');
     reverse = false;
+    re_input = false;
     next_page();
 
 }
 
-function toggleReverse(reverse_) {
-    const row1Cols = document.querySelectorAll(".table2 tr:nth-child(2) td:nth-child(n + 4)");
-    const row2Cols = document.querySelectorAll(".table2 tr:nth-child(3) td:nth-child(n + 4)");
+function toggleReverse1(reverse_) {
+    const row1Cols = document.querySelectorAll(".table2 tr:nth-child(2) td:nth-child(n + 4):nth-child(-n + 14)");
+    const row2Cols = document.querySelectorAll(".table2 tr:nth-child(3) td:nth-child(n + 4):nth-child(-n + 14)");
 
     let row1Data = [];
     row1Cols.forEach(col => row1Data.push(col.innerHTML));
@@ -26,32 +27,82 @@ function toggleReverse(reverse_) {
     }
 }
 
-function updateSelectOptions1(target1, target2, selectElement) {
+function toggleReverse2(reverse_) {
+    const row1Cols = document.querySelectorAll(".table2 tr:nth-child(2) td:nth-child(n + 15):nth-child(-n + 16)");
+    const row2Cols = document.querySelectorAll(".table2 tr:nth-child(3) td:nth-child(n + 15):nth-child(-n + 16)");
+
+    let row1Data = [];
+    row1Cols.forEach(col => row1Data.push(col.innerHTML));
+    let row2Data = [];
+    row2Cols.forEach(col => row2Data.push(col.innerHTML));
+
+    if (reverse_) {
+        row1Cols.forEach((col, index) => col.innerHTML = row2Data[index]);
+        row2Cols.forEach((col, index) => col.innerHTML = row1Data[index]);
+    } else {
+        row1Cols.forEach((col, index) => col.innerHTML = row1Data[index]);
+        row2Cols.forEach((col, index) => col.innerHTML = row2Data[index]);
+    }
+}
+
+function showSelectedValue() {
+    // セレクトボックスの要素を取得
+    const selectBox1 = document.getElementById("myselect1");
+    const selectBox2 = document.getElementById("myselect2");
+
+    // 選択されたオプションのテキストを取得
+    const selectedValue1 = selectBox1.options[selectBox1.selectedIndex].text;
+    const selectedValue2 = selectBox2.options[selectBox2.selectedIndex].text;
+
+    // 取得したテキストを別の場所に表示
+    document.getElementById("select1").innerText = `${selectedValue1}`;
+    document.getElementById("select2").innerText = `${selectedValue2}`;
+    }
+
+function updateSelectOptions1(target1, target2) {
     const option1 = document.getElementById('myselect1').value;
     const option2 = document.getElementById('myselect2').value;
 
-    const option1Element = document.getElementById('myselect1');
+    //const option1Element = document.getElementById('myselect1');
     const option2Element = document.getElementById('myselect2');
-
-    const row = selectElement.closest("tr");
-    const rowIndex = Array.from(row.parentNode.children).indexOf(row);
 
     // 選択肢をリセット
     resetOptions(option2Element, option1);
-    resetOptions(option1Element, option2);
+    //resetOptions(option1Element, option2);
 
     if (option1 && option2) {
-        console.log(reverse);
-        if (reverse) {
+        showSelectedValue();
+        if (re_input) {
             var min_move = calc_min_move(option1, option2, target2, target1)
         } else {
             var min_move = calc_min_move(option1, option2, target1, target2)
         }
-        document.getElementById("result1").textContent = min_move.moves1;
-        document.getElementById("result2").textContent = min_move.moves2;
+        document.getElementById("result1").innerHTML = `${formatnum(min_move.moves1)}`;
+        document.getElementById("result2").innerHTML = `${formatnum(min_move.moves2)}`;
         reverse = min_move.reverse
-        console.log(reverse);
-        toggleReverse(reverse);
+        if ((re_input && reverse) || (!re_input && !reverse)) {
+            re_input = false;
+        } else {
+            re_input = true;
+        }
+        toggleReverse1(reverse);
+    }
+}
+
+function updateSelectOptions2(option1, option2) {
+    const target1 = document.getElementById('myselect1').value;
+    const target2 = document.getElementById('myselect2').value;
+
+    if (target1 && target2) {
+        if (re_input) {
+            var min_move = calc_min_move(option2, option1, target1, target2)
+        } else {
+            var min_move = calc_min_move(option1, option2, target1, target2)
+        }
+        document.getElementById("result3").innerText = formatnum(min_move.moves1);
+        document.getElementById("result4").innerText = formatnum(min_move.moves2);
+        var reverse2 = min_move.reverse
+        toggleReverse2(reverse2);
     }
 }
 
@@ -67,9 +118,18 @@ function resetOptions(selectElement, valueToHide) {
     }
 }
 
+function formatnum(Number) {
+    let formattedValue = '';
+    if (Number > 0) {
+        formattedValue = `+${Number}`;
+    } else {
+        formattedValue = `${Number}`;  // 負または0のまま
+    }
+    return formattedValue;
+}
+
 function calc_min_move(option1, option2, target1, target2) {
     // 移動の最小値を計算するヘルパー関数
-    console.log(option1, option2, target1, target2);
     const circleSize = 12;
     const distance = (start, end) => {
         const directDistance = ((end - start) + 12) % 12;
@@ -158,8 +218,9 @@ const wav_dir = "wav/";
 document.onkeypress = invalid_enter();
 
 //var natural;
-var pattern
-var reverse
+var pattern;
+var reverse;
+var re_input;
 
 // ローカルで行う場合はloadText()は動作しないため
 var n = 0;

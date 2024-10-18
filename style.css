@@ -25,6 +25,10 @@
     width: 100px;  /* 偶数番目のセルの幅 */
 }
 
+.table1 td:nth-child(2n + 3), .table2 td:nth-child(2n + 3) {
+    width: 50px;  /* 偶数番目のセルの幅 */
+}
+
 /* 特定のセルの枠線を非表示にする */
 .table1 .no-border, .table2 .no-border {
     border: none;  /* 枠線を全て非表示にする */
